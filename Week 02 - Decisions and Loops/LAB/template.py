@@ -18,24 +18,28 @@ Delete these instructions as you replace them with your code.
 #    - the first is TEXT      (a name, a hostname, an IP)  -> no conversion needed
 #    - the second is a NUMBER (use float(), not int())
 #    - the third  is a NUMBER (use float(), not int())
-
-label = ""      # replace with an input() call
-value = 0.0     # replace with an input() call, converted with float()
-limit = 0.0     # replace with an input() call, converted with float()
-
+     
+hostname = input("Enter hostname: ")
+gb_used = float(input("Enter GB used: "))     
+gb_total = float(input("Enter total GB: "))
 
 # ================================================================== PROCESS
 # 2. Work out the difference and the percentage.       [Typical and above]
 
-difference = 0.0   # replace with your calculation
-percent = 0.0       # replace with your calculation
+difference = gb_total - gb_used  # 
+percent = (gb_used / gb_total * 100)     # replace with your calculation
 # 3. Decide a status and store it in a variable called status.
 #
 #    Threshold : if / else        -> "OVER LIMIT" or "OK"
 #    Typical   : if / elif / else -> "OVER LIMIT" (100% or more),
 #                                     "WARNING" (90% or more), otherwise "OK"
-
-status = ""   # replace with your if / else (or if / elif / else)
+if percent >= 100:
+    status = "OVER LIMIT"
+elif percent >= 90:
+    status = "WARNING"
+else:
+    status = "OK"
+   # replace with your if / else (or if / elif / else)
 
 
 # =================================================================== OUTPUT
@@ -50,8 +54,13 @@ status = ""   # replace with your if / else (or if / elif / else)
 
 print()
 print("=" * 34)
-print(f"  RECORD CHECK  -  {label}")
+print(f"  RECORD CHECK  -  {hostname}")
 print("=" * 34)
+print(f"{'GB used':>12}:{gb_used:>10.2f}")
+print(f"{'GB total':>12}:{gb_total:>10.2f}")
+print(f"{'Difference':>12}:{difference:>10.2f}")
+print(f"{'Percent':>12}:{percent:>10.2f}%")
+print(f"{'status':>12}:{status}")
 
 # your report lines go here
 

@@ -14,16 +14,15 @@ Delete these instructions as you replace them with your code.
 
 # ==================================================================== INPUT
 # 1. Ask the user for your three values.
-#
 #    - the first is TEXT      (a name, a hostname, an IP)  -> no conversion needed
 #    - the second is a NUMBER (use float(), not int())
 #    - the third  is a NUMBER (use float(), not int())
 #
 #    Remember: input() always gives back text.
 
-label = ""      # : replace with an input() call
-first = 0.0     # : replace with an input() call, converted
-second = 0.0    # : replace with an input() call, converted
+hostname = input("Enter hostname: ")    # : replace with an input() call
+gb_used = float(input("Enter GB used: "))     # : replace with an input() call, converted
+gb_total = float(input("Enter total GB: "))    # : replace with an input() call, converted
 
 
 # ================================================================== PROCESS
@@ -34,8 +33,8 @@ second = 0.0    # : replace with an input() call, converted
 #
 #    Do not type the answers. Calculate them.
 
-difference = 0.0   # 
-percent = 0.0      # 
+difference = gb_total - gb_used  # 
+percent = (gb_used / gb_total * 100)     # 
 
 
 # =================================================================== OUTPUT
@@ -50,8 +49,14 @@ percent = 0.0      #
 
 print()
 print("=" * 34)
-print(f"  RECORD CHECK  -  {label}")
+print(f"  RECORD CHECK  -  {hostname}")
 print("=" * 34)
+print(f"{'GB used':>12}:{gb_used:>10.2f}")
+print(f"{'GB total':>12}:{gb_total:>10.2f}")
+print(f"{'Difference':>12}:{difference:>10.2f}")
+print(f"{'Percent':>12}:{percent:>10.2f}%")
+
+
 
 # : your report lines go here
 
